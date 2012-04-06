@@ -34,7 +34,7 @@ public class MailExporter
 
 		ExportedMail exportedMail = new ExportedMail( mail.getFrom(), mail.getSubject(), mail.getText(), exportAttachmentFilePath );
 
-		// JSONo—Í‚É¸”s‚µ‚Ä‚à\‚í‚¸“®‚©‚·B
+		// JSONå‡ºåŠ›ã«å¤±æ•—ã—ã¦ã‚‚æ§‹ã‚ãšå‹•ã‹ã™ã€‚
 		try
 		{
 			exportJSON( exportJSONFilePath, mail, exportAttachmentFilePath );

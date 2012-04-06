@@ -38,7 +38,7 @@ public class MailReceiver
 			{
 				if( !message.getFlags().contains( Flag.SEEN ))
 				{
-//					System.out.printf("%s - %d\n", message.getSubject(), message.getSize());
+//					System.out.printf("%s - %dÂ¥n", message.getSubject(), message.getSize());
 					Mail mail = MailReceiver.createMail( message, attachmentType );
 					if( mail != null )
 					{
@@ -74,7 +74,7 @@ public class MailReceiver
 				{
 					text = part.getContent().toString();
 				}
-				// Å‰‚Ì‚Ğ‚Æ‚Â–Ú‚¾‚¯‚ğ—LŒø‚Æ‚·‚éB
+				// æœ€åˆã®ã²ã¨ã¤ç›®ã ã‘ã‚’æœ‰åŠ¹ã¨ã™ã‚‹ã€‚
 				else if( attachment == null && contentType.startsWith( attachmentType ) )
 				{
 					InputStream in = part.getInputStream();

@@ -30,9 +30,9 @@ public class MailSender
 		systemProperties.put( "mail.smtp.starttls.enable", "true" );
 
 		Session session = Session.getInstance( systemProperties );
-		session.setDebug( true );
+//		session.setDebug( true );
 
-		// TODO ‚±‚±‚ğƒŠƒXƒg‚Å‰ñ‚·Š´‚¶H
+		// TODO ã“ã“ã‚’ãƒªã‚¹ãƒˆã§å›ã™æ„Ÿã˜ï¼Ÿ
 		MimeMessage mimeMessage = createSendMessage( session, exportedMail.getFrom(), to, exportedMail.getSubject(), exportedMail.getText(), exportedMail.getAttachmentFilePath() );
 
 		Transport transport = session.getTransport( setting.getProtocol() );
@@ -50,17 +50,17 @@ public class MailSender
 
 		Multipart multipart = new MimeMultipart();
 
-		// ƒeƒLƒXƒg•”•ª
+		// ãƒ†ã‚­ã‚¹ãƒˆéƒ¨åˆ†
 		MimeBodyPart textPart = new MimeBodyPart();
 		textPart.setText( text, "UTF-8" );
 		multipart.addBodyPart( textPart );
 
-		// “Y•tƒtƒ@ƒCƒ‹•”•ª
+		// æ·»ä»˜ãƒ•ã‚¡ã‚¤ãƒ«éƒ¨åˆ†
 		BodyPart attachmentPart = new MimeBodyPart();
-		// í‚ÉƒoƒCƒiƒŠƒf[ƒ^‚Å‚ ‚é‚à‚Ì‚Æ‚µ‚Äƒtƒ@ƒCƒ‹‚ğ“Y•t‚·‚éB
+		// å¸¸ã«ãƒã‚¤ãƒŠãƒªãƒ‡ãƒ¼ã‚¿ã§ã‚ã‚‹ã‚‚ã®ã¨ã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ·»ä»˜ã™ã‚‹ã€‚
 		attachmentPart.setDataHandler( new DataHandler( new ByteArrayDataSource( new BufferedInputStream( new FileInputStream( attachmentFilePath ) ), "application/octet-stream" ) ) );
 
-		// “Y•tƒtƒ@ƒCƒ‹–¼‚ğƒZƒbƒg
+		// æ·»ä»˜ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ã‚»ãƒƒãƒˆ
 		attachmentPart.setFileName( attachmentFilePath );
 		multipart.addBodyPart( attachmentPart );
 
